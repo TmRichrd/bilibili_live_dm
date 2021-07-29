@@ -29,10 +29,10 @@ setInterval(() => {
   }, (error, res, body) => {
     const { data } = JSON.parse(body)
     data.room.forEach(item => {
+      // if (item.text.indexOf('1') !== -1) return
       let sql = `INSERT INTO c_dwr VALUES(0,'${item.text}','${item.uid}','${item.nickname}','${item.timeline}','${item.medal[0]}','${item.medal[1]}','${item.medal[2]}')`
       connection.query(sql, function (error, results, fields) {
         if (error) throw error;
-        console.log(`插入成功,当前插入数量${data.room.length}`);
       });
     })
   })
