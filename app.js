@@ -1,5 +1,6 @@
 const request = require('request')
 const mysql = require('mysql');
+const _config = require('./mysql.config')
 let url = "https://api.live.bilibili.com/ajax/msg"
 let header = {
   "Content-Type": "application/x-www-form-urlencoded",
@@ -12,12 +13,6 @@ let params = {
   csrf_token: "fa56950667934cf5a3479ca94abc1f9a",
   csrf: "fa56950667934cf5a3479ca94abc1f9a",
   visit_id: ""
-}
-let _config = {
-  host: 'localhost',
-  user: 'root',
-  password: 'root',
-  database: 'xiangwan'
 }
 
 const connection = mysql.createConnection(_config)
